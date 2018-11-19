@@ -28,13 +28,21 @@ By the way, on macOS you can install Python 3.6 via [homebrew](https://brew.sh):
 ```
 On Ubuntu you can use [instructions posted on askubuntu.com](https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get).
 
+Before runing the code, please create the output file
+```bash
+mkdir SteamScraper/output
+cd output
+touch products_all.log
+cd ..
+```
+
 ## Crawling the Products
 
 The purpose of `ProductSpider` is to discover product pages on the [Steam product listing](http://store.steampowered.com/search/?sort_by=Released_DESC) and extract useful metadata from them.
 A neat feature of this spider is that it automatically navigates through Steam's age verification checkpoints.
 You can initiate the multi-hour crawl with
 ```bash
-scrapy crawl products -o output/products_all.jl --logfile=output/products_all.log --loglevel=INFO -s JOBDIR=output/products_all_job -s HTTPCACHE_ENABLED=False
+scrapy crawl products -o output/products_all.csv --logfile=output/products_all.log --loglevel=INFO -s JOBDIR=output/products_all_job -s HTTPCACHE_ENABLED=False
 ```
 When it completes you should have metadata for all games on Steam in `output/products_all.jl`.
 Here's some example output:
