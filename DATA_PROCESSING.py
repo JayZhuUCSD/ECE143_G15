@@ -149,7 +149,7 @@ def df_processing(data2):
     ''' this file is to generate the Positive_Review_Rank feature
     on the basis of which the new dataframe is created'''
     import pandas as pd
-    assert isinstance(data1, pd.DataFrame)
+    assert isinstance(data2, pd.DataFrame)
     import numpy as np
     data3 = data2
 
